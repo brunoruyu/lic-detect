@@ -3,12 +3,6 @@
 Quick Start - Demo rápido del sistema
 Ejecuta un ciclo completo de detección sin necesidad de credenciales reales
 """
-import sys
-from pathlib import Path
-
-# Agregar src al path
-sys.path.insert(0, str(Path(__file__).parent / 'src'))
-
 from datetime import datetime, timedelta
 import logging
 
@@ -18,10 +12,10 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-from scrapers import TesoritacionScraper
-from data import MarketDataProvider
-from detector import LicitacionSignalDetector
-from config import DETECTION_PARAMS
+from licitacion_detector.scrapers.tesoro_scraper import TesoritacionScraper
+from licitacion_detector.data.market_data import MarketDataProvider
+from licitacion_detector.detector.signal_detector import LicitacionSignalDetector
+from licitacion_detector.config import DETECTION_PARAMS
 
 def main():
     print("=" * 80)
@@ -119,7 +113,7 @@ def main():
     print("📋 Próximos pasos:")
     print("1. Revisar README.md para setup completo")
     print("2. Configurar credenciales en .env")
-    print("3. Ejecutar: python src/main.py --mode paper --once")
+    print("3. Ejecutar: python main.py --mode paper --once")
     print()
 
 
